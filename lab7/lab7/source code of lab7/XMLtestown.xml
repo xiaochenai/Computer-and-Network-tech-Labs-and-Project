@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book isbn="0836217462">
+	<title>
+	Being a Dog Is a Full-Time Job
+	</title>
+	<author>Charles M. Schulz</author>
+	<publisher>Andrews McMeel Publishing</publisher>
+	<release_month>1989-06-04</release_month>
+	<character>
+		<name>Snoopy</name>
+		<friend-of>Peppermint Patty</friend-of>
+		<since>1950-10-04</since>
+		<qualification>
+		extroverted beagle
+		</qualification>
+		<age>66</age>
+		<phone_number>334-885-9876</phone_number>
+	</character>
+	<character>
+	<name>Peppermint Patty</name>
+	<since>1966-08-22</since>
+	<qualification>bold, brash and tomboyish</qualification>
+	<age>50</age>
+	<phone_number>334-456-4567</phone_number>
+	</character>
+</book>

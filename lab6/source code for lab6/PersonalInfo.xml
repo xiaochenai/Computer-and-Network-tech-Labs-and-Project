@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<PersonalInfo>
+	<person category="Faculty">
+		<Name>Dave Irwin</Name>
+		<SSN>000000001</SSN>
+		<Street>J Street</Street>
+		<ZipCode>Auburn, AL 36830</ZipCode>
+		<PhoneNumber>3348888888</PhoneNumber>
+		<email>dave.irwin@auburn.edu</email>
+	<search_times>21</search_times></person>
+	<person category="Staff">
+		<Name>Joe Smith</Name>
+		<SSN>000000002</SSN>
+		<Street>KC Street</Street>
+		<ZipCode>Auburn, AL 36831</ZipCode>
+		<PhoneNumber>3348888880</PhoneNumber>
+		<email>joe.smith@auburn.edu</email>
+	<search_times>21</search_times></person>
+</PersonalInfo>

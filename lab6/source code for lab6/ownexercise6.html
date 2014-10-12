@@ -1,0 +1,113 @@
+<html>
+<head>
+<title> my own exercise6</title>
+<script lang = "javascript">
+var xmlHttp;
+
+function calcu(str)
+{
+//construct a GetXml..  Object
+xmlHttp=GetXmlHttpObject();
+if (xmlHttp==null)
+  {
+  alert ("Your browser does not support AJAX!");
+  return;
+  } 
+//get the form detials by method getElementById
+var url="ownexercise6.php";
+var cd1price = document.getElementById("cd1price").innerHTML;
+var cd1quantity = document.getElementById("cd1quantity").value;
+var cd7price = document.getElementById("cd7price").innerHTML;
+var cd7quantity = document.getElementById("cd7quantity").value;
+var movieAprice = document.getElementById("movieAprice").innerHTML;
+var movieAquantity = document.getElementById("movieAquantity").value;
+//get right url
+url=url+"?cd1price="+cd1price;
+url=url+"&cd1quantity="+cd1quantity;
+url=url+"&cd7price="+cd7price;
+url=url+"&cd7quantity="+cd7quantity;
+url=url+"&movieAprice="+movieAprice;
+url=url+"&movieAquantity="+movieAquantity;
+url=url+"&sid="+Math.random();
+xmlHttp.onreadystatechange=stateChanged;
+//send request to server
+xmlHttp.open("GET",url,true);
+xmlHttp.send(null);
+} 
+
+function stateChanged() 
+{ 
+if (xmlHttp.readyState==4)
+{ 
+//get respons and update the form
+var response=xmlHttp.responseText.split(",");
+document.getElementById("cd1total").innerHTML=xmlHttp.response.split(",")[0];
+document.getElementById("cd7total").innerHTML=xmlHttp.responseText.split(",")[1];
+document.getElementById("movieAtotal").innerHTML=xmlHttp.responseText.split(",")[2];
+document.getElementById("shippingtotal").innerHTML=xmlHttp.responseText.split(",")[3];
+document.getElementById("total").innerHTML=xmlHttp.responseText.split(",")[4];
+}
+}
+
+function GetXmlHttpObject()
+{
+var xmlHttp=null;
+try
+  {
+  xmlHttp=new XMLHttpRequest();
+  }
+catch (e)
+  {
+  try
+    {
+    xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+    }
+  catch (e)
+    {
+    xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+  }
+return xmlHttp;
+} 
+</script> 
+</head>
+<body>
+<form>
+<!--create table-->
+<table border='2'>
+<tr>
+	<th>Item Name</th>
+	<th>Price</th>
+	<th>Quantity</th>
+	<th>Total</th>
+</tr>
+<tr>
+	<td>CD1</td>
+	<td id = "cd1price">11.5</td>
+	<td><input type = "text" id="cd1quantity" onkeyup = "calcu(this.value)"></td>
+	<td id = "cd1total">0</td>
+</tr>
+<tr>
+	<td>CD7</td>
+	<td id = "cd7price">12.75</td>
+	<td><input type = "text" id="cd7quantity" onkeyup = "calcu(this.value)"></td>
+	<td id = "cd7total">0</td>
+</tr>
+<tr>
+	<td>MOVIEA</td>
+	<td id = "movieAprice">19.95</td>
+	<td><input type="text" id = "movieAquantity" onkeyup = "calcu(this.value)"></td>
+	<td id = "movieAtotal">0</td>
+</tr>
+<tr>
+	<td colspan="3">Shipping/handling(5%)</td>
+	<td id = "shippingtotal">0</td>
+</tr>
+<tr>
+	<td colspan="3">Total purchase</td>
+	<td id = "total">0</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

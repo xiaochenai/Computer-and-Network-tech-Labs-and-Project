@@ -1,0 +1,228 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<script type='text/javascript'>
+
+function monthValidator(){
+  var month = document.getElementById("month");
+  if(isMonth(month, "Enter a valid month.")){
+  
+    document.getElementById("month").value= month.value;
+	
+  return true;
+}
+return false;
+}
+function yearValidator(){
+  var month = document.getElementById("month");
+  var year = document.getElementById("year");
+  var cur_date = new Date();
+  var cur_month = cur_date.getMonth()+1;
+  var cur_year = cur_date.getFullYear();
+  if(isYear(year, "Enter a valid year")){
+	if(year.value < cur_year)
+	{
+		alert("your card has Expired!!");
+		document.getElementById("checkexp").innerHTML = "Credit card expiration date is Unverified";
+	}
+	else if(year.value == cur_year)
+	{
+		if(month.value < cur_month)
+		{
+			alert("your card has Expired!!");
+			document.getElementById("checkexp").innerHTML = "Credit card expiration date is Unverified";
+		}
+	
+		else
+		{
+		document.getElementById("year").value= year.value;
+		document.getElementById("checkexp").innerHTML = "Credit card expiration date is Verified";
+		
+		return true;
+		}
+	}
+	else if(year.value > cur_year){
+		document.getElementById("year").value= year.value;
+		document.getElementById("checkexp").innerHTML = "Credit card expiration date is Verified";
+	}
+  }
+
+return false;
+}
+function cardValidator(){
+	var type = document.getElementById("type");
+	var cardnumber = document.getElementById("cardnumber");
+	if(iscardnumber(cardnumber.value,type.value)){
+		document.getElementById("cardnumber").value = cardnumber.value;
+		document.getElementById("checknum").innerHTML = "Credit card number is Verified";
+		return true;
+	}else{
+		document.getElementById("checknum").innerHTML = "Credit card number is Unverified";
+		return false;
+	}
+	
+}
+
+function isYear(elem,helpMsg)
+{
+	var yearExpression = /^[0-9]{4}$/;
+	if(elem.value.match(yearExpression)){
+	return true;
+	}else{
+		alert(helpMsg);
+		elem.focus();
+		return false;
+	}
+}
+
+function isNumeric(elem, helperMsg){
+   var numericExpression = /^[0-9]+$/;
+    if(elem.value.match(numericExpression)){
+    return true;
+    }else{
+      alert(helperMsg);
+      elem.focus();
+      return false;
+}
+}
+function isMonth(elem,helperMsg){
+	var monthExpression = /^(0?[1-9]|1[0-2])$/;
+	if(elem.value.match(monthExpression)){
+	return true;
+	}else{
+		alert(helperMsg);
+		elem.focus();
+		return false;
+	}
+}
+function iscardnumber(elem,type)
+{
+	var c = elem.length;
+	switch(type)
+	{
+		case "Visa":
+		if (elem.charAt(0) == 4 && (c == 16 || c == 13)) {
+			if(check_luhn(elem)) {break;}
+			else {alert("enter a valid card number1"); return false;}
+		}
+		else{
+			alert("enter a valid Visa card number");
+			return false;
+		}
+		break;
+	// check Master Card for starting 51-55
+	case "MasterCard":
+		if (elem.charAt(0) == 5 && elem.charAt(1) < 6 && elem.charAt(1) > 0 && c == 16){
+			if(check_luhn(elem)) break;
+			else {alert("enter a valid card number"); return false;}
+		}
+		else{
+			alert("enter a valid Mastercard card number");
+			return false;
+		}			
+		break;
+	// check Discover for starting 6011
+	case "Discover":
+		if (elem.charAt(0) == 6 && elem.charAt(1) == 0 && elem.charAt(2) == 1 && elem.charAt(3) == 1 && c == 16){
+			if(check_luhn(elem)) break;
+			else {alert("enter a valid  card number"); return false;}
+		}
+		else{
+			alert("enter a valid Discover card number");
+			return false;
+		}
+		break;
+	// American Express prefix no is 34 or 47 length is 15
+	case "American Express":
+		if(elem.charAt(0) == 3 && (elem.charAt(1) == 4 ||elem.charAt(1) == 7) && c==15){
+			if(check_luhn(elem)) break;
+			else {alert("enter a valid card number"); return false;}
+		}
+		else{
+			alert("enter a valid American Express card number");
+			return false;
+		}
+		break;
+	// Amex Corporate prefix no is 34 or 37 length is 15
+	case "Amex Corporate":
+		if(elem.charAt(0) == 3 && (elem.charAt(1) == 4 || elem.charAt(1) == 7) && c == 15){
+			if(check_luhn(elem)) break;
+			else {alert("enter a valid card number"); return false;}
+		}
+		else{
+			alert("enter a valid Amex Corporate card number");
+			return false;
+		}
+		break;
+	//Dinners Club prefix no is 36 38 300-305 length is 14
+	case"Dinners Club":
+		if(elem.charAt(0) == 3 && ((elem.charAt(1) == 0 && elem.charAt(2)<6) || (elem.charAt(1) == 6 || elem.charAt(1) == 8)) && c == 14){
+			if(check_luhn(elem)) break;
+			else {alert("enter a valid card number"); return false;}
+		}
+		else{
+			alert("enter a valid Dinners Club card number");
+			return false;
+		}
+		break;
+	
+	default:
+		return false;
+	}
+
+	
+	return true;
+}
+function check_luhn(number){
+
+	var length_n = number.length;
+	var value = 0;
+	var temp = 0;
+	var i = 0;
+	var t = 1;
+	for(i=length_n-1;i>=0;i--){
+		temp = number.charAt(i)*t;
+		if(t == 1) t = 2;
+		else t = 1;
+		if (temp>9) temp = temp - 9;
+		value = value + temp;
+		
+	}
+	if((value % 10) != 0){
+
+		return false;}
+	else return true;
+}
+</script>
+<body>
+
+Please enter the information of your Credit Card
+<form >
+Month:
+<input type='text' name="month" id="month" onblur='monthValidator()'></br>
+
+Year :
+<input type = 'text' name = "year" id="year" onblur = 'yearValidator()'></br>
+Card Type
+<select name = "type" id = "type">
+<option value = "Visa">Visa</option>
+<option value = "MasterCard">Master</option>
+<option value = "American Express">American Express</option>
+<option value = "Amex Corporate">Amex Corporate</option>
+<option value = "Dinners Club">Dinners Club</option>
+<option value = "Discover">Discover</option>
+</select></br>
+Card Number :
+<input type='text' name="cardnumber" id="cardnumber" onblur='cardValidator()' size = 30></br>
+</body>
+</html>
+
+
+Click submit when the verifications are complete! 
+<input type='submit' value='submit'>
+<p id="checkexp">Credit card expiration date is Unverified</p>
+<p id="checknum">Credit card number is Unverified</p>
+</form>
+</body>
+</html>

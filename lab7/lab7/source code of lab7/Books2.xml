@@ -1,0 +1,17 @@
+<book_collection>
+	<book>
+		<title>Dracula</title>
+		<year>1989</year>
+		<author>Bram Stoker</author>
+	</book>
+	<book>
+		<title>The Count of Monte Cristo</title>
+		<year>1844</year>
+		<author>Alexandre Dumas</author>
+	</book>
+	<book>
+		<title>Moby Dick</title>
+		<year>1851</year>
+		<author>Herman Melville</author>
+	</book>
+</book_collection>

@@ -1,0 +1,15 @@
+<book_collection>
+	<book>
+		<title>Dracula</title>
+		<author>Bram Stoker</author>
+		<s></s>
+	</book>
+	<book>
+		<title>The Count of Monte Cristo</title>
+		<author>Alexandre Dunas</author>
+	</book>
+	<book>
+	<title>Moby Dick</title>
+	<author>herman Melville</author>
+	</book>
+</book_collection>

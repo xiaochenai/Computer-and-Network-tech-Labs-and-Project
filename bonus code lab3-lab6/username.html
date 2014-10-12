@@ -1,0 +1,39 @@
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<script type='text/javascript'>
+function formValidator(){
+  var user = document.getElementById('user');
+  if(isAlphabet(user, "The username can only contain letters.")){
+  if(lengthRestriction(user, 6, 8)){
+  return true;
+}}
+return false;
+}
+function isAlphabet(elem, helperMsg){
+  var alphaExp = /^[a-zA-Z]+$/;
+  if(elem.value.match(alphaExp)){
+  return true;
+  }else{
+    alert(helperMsg);
+    elem.focus();
+    return false;}
+}
+function lengthRestriction(elem, min, max){
+  var uInput = elem.value;
+  if(uInput.length >= min && uInput.length <= max){
+  return true;
+  }else{
+  alert("The username needs to be "+min+"-"+max+" characters.");
+  elem.focus();
+  return false;
+}}
+</script>
+<body>
+<form onsubmit='return formValidator()'>
+<p>Please enter your desired username.</p>
+<input type='text' id='user'>
+<input type='submit' value='Check Field'>
+</form>
+</body>
+</html>

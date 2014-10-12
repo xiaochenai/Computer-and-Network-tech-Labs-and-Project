@@ -1,0 +1,45 @@
+<details>
+	<display>4-inch Retina</display>
+	<body>123.8*58.6*7.6mm</body>
+	<memory>16GB storage, 1GB RAM</memory>
+	<camera>8 MP,autofocus,LED flash</camera>
+	<OS>iOS6</OS>
+	<Chipset>Apple A6</Chipset>
+	<battery>Standard battery,Li-Po 1440 mAh</battery>
+</details>
+<details>
+	<display>Super IPS LCD2</display>
+	<body>134.4*69.9*8.9mm</body>
+	<memory>32GB storage,1GB RAM</memory>
+	<camera>8 MP,autofocus,LED flash</camera>
+	<OS>Android 4.0</OS>
+	<Chipset>Nvidia Tegra 3</Chipset>
+	<battery>standard battery,Li-po 1800mAh</battery>
+</details>
+<details>
+	<display>4.3-inch,Super AMOLED</display>
+	<body>125.3 x 66.1 x 8.5 mm</body>
+	<memory>16/32 storage, 1 GB RAM,microSD up to 32GB</memory>
+	<camera>8 MP,autofocus,LED flash</camera>
+	<OS>Android 4.1</OS>
+	<Chipset>Exynos</Chipset>
+	<battery>Standard battery, Li-Ion 1650 mAh</battery>
+</details>
+<details>
+	<display>4.3-inch,Super AMOLED</display>
+	<body>127.8 x 68.5 x 11.5 mm</body>
+	<memory>16GB storage, 512 MB RAM</memory>
+	<camera>8 MP,autofocus,LED flash</camera>
+	<OS>Microsoft Windows Phone 7.5 Mango</OS>
+	<Chipset>Qualcomm APQ8055 Snapdragon</Chipset>
+	<battery>Standard battery, Li-Ion 1830 mAh </battery>
+</details>
+<details>
+	<display>4.2-inch,LED-backlit LCD</display>
+	<body>125 x 63 x 8.7 mm</body>
+	<memory>1GB storage, 512 MB RAM,microSD up to 32GB</memory>
+	<camera>8 MP,autofocus,LED flash</camera>
+	<OS>Android 4.0</OS>
+	<Chipset>Qualcomm MSM8255T Snapdragon</Chipset>
+	<battery>Standard battery, Li-Po 1500 mAh</battery>
+</details>
